@@ -47,6 +47,7 @@ android {
             arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
         }
     }
+    ndkVersion '27.2.12479018'
 }
 
 dependencies {
