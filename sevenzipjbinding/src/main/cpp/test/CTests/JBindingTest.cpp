@@ -186,7 +186,6 @@ Java_net_sf_sevenzipjbinding_junit_jbindingtools_ExceptionHandlingTest_callRecur
     JBindingSession jbindingSession(env);
     JNINativeCallContext jniNativeCallContext(jbindingSession, env);
     JNIEnvInstance jniEnvInstance(jbindingSession, jniNativeCallContext, env);
-    jstring _path = (jstring) jniEnvInstance->NewGlobalRef(path);
 
     std::stringstream sstream;
 
@@ -196,7 +195,7 @@ Java_net_sf_sevenzipjbinding_junit_jbindingtools_ExceptionHandlingTest_callRecur
         sstream << "(";
     }
     for (int i = 0; i < width; i++) {
-        jstring value = jni::ExceptionHandlingTest::recursiveCallbackMethod(jniEnvInstance, _path, depth,
+        jstring value = jni::ExceptionHandlingTest::recursiveCallbackMethod(jniEnvInstance, path, depth,
                 width, mtwidth, useException, customErrorMessage, i, -1);
         error |= jniEnvInstance.exceptionCheck();
 
@@ -220,7 +219,7 @@ Java_net_sf_sevenzipjbinding_junit_jbindingtools_ExceptionHandlingTest_callRecur
             parameters[i]._threadHelper = &threadHelper;
             parameters[i]._jbindingSession = &jbindingSession;
             parameters[i]._thiz = thiz;
-            parameters[i]._path = _path;
+            parameters[i]._path = path;
             parameters[i]._depth = depth;
             parameters[i]._width = width;
             parameters[i]._mtwidth = mtwidth;
@@ -270,11 +269,9 @@ Java_net_sf_sevenzipjbinding_junit_jbindingtools_ExceptionHandlingTest_callRecur
                 jniEnvInstance.reportError("Following error reports should be ignored!");
             }
         }
-        jniEnvInstance->DeleteGlobalRef(_path);
         return NULL;
     }
 
-    jniEnvInstance->DeleteGlobalRef(_path);
     return env->NewStringUTF(sstream.str().c_str());
 }
 

@@ -18,12 +18,6 @@ class JNINativeCallContext;
 class JBindingSession;
 class JNIEnvInstance;
 
-#ifdef __ANDROID_API__
-#include <string>
-namespace jni { inline void prepareExceptionCheck(JNIEnv * env); }
-jclass findClass(JNIEnv* env, std::string name);
-#endif
-
 template<typename T>
 struct CMyComPtrWrapper {
     CMyComPtr<T> _ptr;
@@ -64,12 +58,6 @@ class JBindingSession {
     ThreadContextMap _threadContextMap;
     PlatformCriticalSection _threadContextMapCriticalSection;
     static JavaVM * _vm;
-
-#ifdef __ANDROID_API__
-public:
-    static jmethodID _classLoaderID;
-    static std::map<std::string, jobject> _classLoaderObjects;
-#endif
 
 #ifdef USE_MY_ASSERTS
 public:
@@ -126,11 +114,7 @@ private:
             _attachedThreadCountCriticalSection.Leave();
 #endif
             jint result;
-#ifdef __ANDROID_API__
-            if ((result = _vm->AttachCurrentThread((JNIEnv**) &threadContext._env, NULL))
-#else
             if ((result = _vm->AttachCurrentThread((void**) &threadContext._env, NULL))
-#endif
                     || threadContext._env == NULL) {
                 TRACE("New thread couldn't be attached: " << result)
                 // throw SevenZipException("Can't attach current thread (id: %i) to the VM", currentThreadId);
