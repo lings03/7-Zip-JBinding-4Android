@@ -114,7 +114,8 @@ private:
             _attachedThreadCountCriticalSection.Leave();
 #endif
             jint result;
-            if ((result = _vm->AttachCurrentThread((void**) &threadContext._env, NULL))
+            if ((result = _vm->AttachCurrentThread(
+                    reinterpret_cast<JNIEnv **>((void **) &threadContext._env), NULL))
                     || threadContext._env == NULL) {
                 TRACE("New thread couldn't be attached: " << result)
                 // throw SevenZipException("Can't attach current thread (id: %i) to the VM", currentThreadId);
