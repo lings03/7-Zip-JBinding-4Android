@@ -46,7 +46,7 @@ android {
         namespace 'net.sf.sevenzipjbinding'
 
         versionCode 1
-        versionName "16.02-2.02-16kpgsize"
+        versionName "2024.12"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -75,7 +75,7 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.github.lings03'
             artifactId = '7-Zip-JBinding-4Android'
-            version = '16.02-2.02-16kpgsize'
+            version = '2024.12'
 
             afterEvaluate {
                 from components.release
