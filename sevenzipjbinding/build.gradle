@@ -29,8 +29,12 @@ android {
     compileSdk 35
     ndkVersion '27.2.12479018'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_21
-        targetCompatibility JavaVersion.VERSION_21
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     publishing {
@@ -46,7 +50,12 @@ android {
         namespace 'net.sf.sevenzipjbinding'
 
         versionCode 1
-        versionName "2024.12"
+        versionName "2025.01.26"
+
+        // these values are not written by com.android.library by default
+        // see https://stackoverflow.com/questions/64333763
+        buildConfigField 'int', 'VERSION_CODE', "${versionCode}"
+        buildConfigField 'String', 'VERSION_NAME', "\"${versionName}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -73,9 +82,9 @@ android {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.github.lings03'
+            groupId = 'com.github.edeso'
             artifactId = '7-Zip-JBinding-4Android'
-            version = '2024.12'
+            version = android.defaultConfig.versionName
 
             afterEvaluate {
                 from components.release
