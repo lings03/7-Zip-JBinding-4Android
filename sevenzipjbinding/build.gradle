@@ -27,7 +27,7 @@ ext {
 
 android {
     compileSdk 35
-    ndkVersion '27.2.12479018'
+    ndkVersion "28.0.13004108"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -60,11 +60,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
 
-        externalNativeBuild {
-            cmake {
-                arguments "-DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON"
-            }
-        }
     }
     buildTypes {
         release {
@@ -82,7 +77,7 @@ android {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.github.edeso'
+            groupId = 'com.github.lings03'
             artifactId = '7-Zip-JBinding-4Android'
             version = android.defaultConfig.versionName
 
