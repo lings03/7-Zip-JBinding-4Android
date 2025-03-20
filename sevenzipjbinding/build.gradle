@@ -26,11 +26,11 @@ ext {
 }
 
 android {
-    compileSdk 35
+    compileSdk 36
     ndkVersion "28.0.13004108"
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     buildFeatures {
@@ -45,12 +45,12 @@ android {
 
     defaultConfig {
         minSdk 21
-        targetSdk 35
+        targetSdk 36
 
         namespace 'net.sf.sevenzipjbinding'
 
         versionCode 1
-        versionName "2025.01.26"
+        versionName "2025.03.21"
 
         // these values are not written by com.android.library by default
         // see https://stackoverflow.com/questions/64333763
