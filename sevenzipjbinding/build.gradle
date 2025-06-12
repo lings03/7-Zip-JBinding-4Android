@@ -50,7 +50,7 @@ android {
         namespace 'net.sf.sevenzipjbinding'
 
         versionCode 1
-        versionName "2025.04.30-ede"
+        versionName "2025.06.13"
 
         // these values are not written by com.android.library by default
         // see https://stackoverflow.com/questions/64333763
