@@ -27,7 +27,7 @@ ext {
 
 android {
     compileSdk 36
-    ndkVersion "28.1.13356709"
+    ndkVersion "30.0.14904198"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
