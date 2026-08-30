@@ -36,13 +36,13 @@ android {
     buildFeatures {
         buildConfig = true
     }
-
+/*
     publishing {
         singleVariant('release') {
             withJavadocJar()
         }
     }
-
+*/
     defaultConfig {
         minSdk 21
         targetSdk 36
