@@ -26,8 +26,15 @@ ext {
 }
 
 android {
-    compileSdk 36
-    ndkVersion "30.0.14904198"
+    compileSdk {
+        version = release(37) {
+            // this block and its properties are optional
+            minorApiLevel = 2
+            //sdkExtension = 18
+        }
+        //version = preview("CinnamonBun")
+    }
+    ndkVersion "30.0.16138531-rc1"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -45,7 +52,7 @@ android {
 
     defaultConfig {
         minSdk 21
-        targetSdk 36
+        targetSdk 37
 
         namespace 'net.sf.sevenzipjbinding'
 
