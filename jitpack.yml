@@ -1,5 +1,7 @@
 before_install:
-  - sdk install java 21-open
-  - sdk use java 21-open
+  - sdk list java
+  - sdk install java 25-tem
+  - sdk use java 25-tem
+  - gradlew --version
 jdk:
-  - openjdk21
+  - openjdk25
