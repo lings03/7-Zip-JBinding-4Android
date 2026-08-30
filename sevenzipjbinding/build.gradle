@@ -26,14 +26,7 @@ ext {
 }
 
 android {
-    compileSdk {
-        version = release(37) {
-            // this block and its properties are optional
-            minorApiLevel = 2
-            //sdkExtension = 18
-        }
-        //version = preview("CinnamonBun")
-    }
+    compileSdk 37
     ndkVersion "30.0.16138531-rc1"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
