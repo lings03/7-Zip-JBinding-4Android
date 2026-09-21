@@ -26,8 +26,9 @@ ext {
 }
 
 android {
-    compileSdk 36
-    ndkVersion "28.1.13356709"
+    compileSdk = 37
+    buildToolsVersion = "37.0.0"
+    ndkVersion = "30.0.16248370"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
@@ -44,13 +45,13 @@ android {
     }
 
     defaultConfig {
-        minSdk 21
-        targetSdk 36
+        minSdk = 21
+        targetSdk = 37
 
-        namespace 'net.sf.sevenzipjbinding'
+        namespace = 'net.sf.sevenzipjbinding'
 
-        versionCode 1
-        versionName "2025.06.13"
+        versionCode = 1
+        versionName = "2026.09.21"
 
         // these values are not written by com.android.library by default
         // see https://stackoverflow.com/questions/64333763
@@ -89,7 +90,8 @@ publishing {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // appcompat v1.8+ API23
     implementation 'androidx.appcompat:appcompat:1.7.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
